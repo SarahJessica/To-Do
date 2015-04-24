@@ -5,8 +5,6 @@ angular.module('checklist')
   console.info('state is', $state.current.name);
   $scope.name = $state.current.name;
 
-
-
   $scope.submit = function(user){
     if ($scope.name === 'register'){
       User.register(user)

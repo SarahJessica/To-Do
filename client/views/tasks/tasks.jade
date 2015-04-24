@@ -17,5 +17,26 @@
           option high
           option medium
           option low
-      .form-group
-        button.btn.btn-default(type='submit', ng-click='addTask(task)') Add task
+      .form-group()
+        button.btn.btn-default(type='submit', ng-hide='task.$id', ng-click='addTask(task)') Add task
+        button.btn.btn-default(type='submit', ng-show='task.$id', ng-click='updateTask(task)') Update
+    .col-xs-12
+      table.table.table-striped
+        thead
+          tr
+            th Edit
+            th Delete
+            th Title
+            th Due Date
+            th Priority
+            th Done?
+            th Created At
+        tbody
+          tr(ng-repeat='task in afTasks')
+            td: button.btn-xs(ng-click='editTask(task)') Edit
+            td: button.btn-xs(ng-click='deleteTask(task)') Delete
+            td {{task.title}}
+            td {{task.dueDate}}
+            td {{task.priority}}
+            td: input(type='checkbox', ng-model='task.icComplete', ng-click='toggleComplete(task)')
+            td {{task.createdAt}}

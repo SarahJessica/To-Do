@@ -10,12 +10,25 @@ angular.module('checklist')
   function init(){
     fbTasks = $rootScope.fbRoot.child('users/' + $rootScope.activeUser.uid + '/tasks');
     afTasks = $firebaseArray(fbTasks);
+    return afTasks;
   }
 
-  
+  function save(task){
+    return afTasks.$save(task);
+  }
+
   function add(task){
     init();
     return afTasks.$add(task);
   }
-  return {add: add, init: init};
+
+  function destroy(task){
+    return afTasks.$remove(task);
+  }
+
+  // function edit(task){
+  //   return afTasks.$save(task);
+  // }
+
+  return {add: add, init: init, destroy: destroy, save: save, edit: edit};
 }]);
