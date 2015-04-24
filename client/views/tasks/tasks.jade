@@ -1,0 +1,21 @@
+
+.container-fluid
+  .row
+    .col-xs-12
+      h1 TASKS
+  .row
+    .col-xs-12
+      .form-group
+        label(for='title') Title
+        input#title.form-control(type='text', name='title', autofocus=true, ng-model='task.title')
+      .form-group
+        label(for='dueDate') Due Date
+        input#dueDate.form-control(type='date', name='dueDate', autofocus=true, ng-model='task.dueDate')
+      .form-group
+        label(for='priority') Priority
+        select#priority.form-control(type='password', name='password', ng-model='task.priority')
+          option high
+          option medium
+          option low
+      .form-group
+        button.btn.btn-default(type='submit', ng-click='addTask(task)') Add task

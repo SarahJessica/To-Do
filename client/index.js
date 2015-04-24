@@ -9,7 +9,9 @@ angular.module('checklist', ['firebase', 'ui.router'])
   .state('about', {url: '/about', templateUrl: '/views/home/about.html'})
   .state('faq', {url: '/faq', templateUrl: '/views/home/faq.html'})
   .state('contact', {url: '/contact', templateUrl: '/views/home/contact.html'})
-  .state('register', {url: '/register', templateUrl: '/views/users/users.html' , controller: 'UsersCtrl'});
+  .state('register', {url: '/register', templateUrl: '/views/users/users.html' , controller: 'UsersCtrl'}) // these two are
+  .state('login', {url: '/login', templateUrl: '/views/users/users.html' , controller: 'UsersCtrl'}) //using the same file
+  .state('tasks', {url: '/tasks', templateUrl: '/views/tasks/tasks.html' , controller: 'TasksCtrl'}); //using the same file
 }])
 .run(['$rootScope', '$window', '$firebaseAuth', 'firebaseUrl', function($rootScope, $window, $firebaseAuth, firebaseUrl){
     $rootScope.fbRoot = new $window.Firebase(firebaseUrl);
